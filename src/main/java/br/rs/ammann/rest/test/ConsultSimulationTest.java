@@ -10,6 +10,11 @@ import static org.hamcrest.Matchers.is;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+/**
+ * @author anderson.mann
+ *
+ */
+
 public class ConsultSimulationTest extends BaseTest {
 
     @Test(priority = 1, description = "Realiza a consulta de uma simulação", groups = {"smoke.test"})
