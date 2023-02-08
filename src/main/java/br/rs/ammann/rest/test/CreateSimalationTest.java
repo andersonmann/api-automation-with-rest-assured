@@ -1,7 +1,9 @@
-package br.rs.ammann.rest.tasks;
+package br.rs.ammann.rest.test;
 
 import br.rs.ammann.rest.core.BaseTest;
-import org.junit.Test;
+import br.rs.ammann.rest.util.DataGenerator;
+import org.testng.annotations.Test;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,51 +11,71 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+/**
+ * @author anderson.mann
+ *
+ */
 
 public class CreateSimalationTest extends BaseTest {
-    @Test
-    public void createASimulationTest(){
+    private static final String RESOURCE = "simulacoes";
+    private static final Boolean INSURANCE = true;
+    DataGenerator dataGenerator = new DataGenerator();
+    String cpf = dataGenerator.createCpf();
+    String name = dataGenerator.createUserName();
+    String email = dataGenerator.createEmail();
+
+    @Test(priority = 0, description = "Cria uma nova simulação", groups = {"smoke.test"})
+    public void createSimulationTest(){
         Map<String, Object> simulation =  new HashMap<>();
-        simulation.put("cpf", "04054351000");
-        simulation.put("nome", "Anderson Mann");
-        simulation.put("email", "anderson@mann.com");
+        simulation.put("cpf", cpf);
+        simulation.put("nome", name);
+        simulation.put("email", email);
         simulation.put("valor", 1500);
         simulation.put("parcelas", 5);
-        simulation.put("seguro", true);
+        simulation.put("seguro", INSURANCE);
 
         given()
-            .body(simulation)
+                .body(simulation)
         .when()
-            .post("simulacoes")
+                .post(RESOURCE)
         .then()
-            .statusCode(201)
-            .body("id", is(notNullValue()))
-            .body("cpf", is("04054351000"))
-            .body("nome", is("Anderson Mann"))
-            .body("email", is("anderson@mann.com"))
-            .body("valor", is(1500))
-            .body("parcelas", is(5))
-            .body("seguro", is(true))
+                .statusCode(201)
+                .body("id", is(notNullValue()))
+                .body("cpf", is(String.valueOf(cpf)))
+                .body("cpf", is(String.valueOf(cpf)))
+                .body("nome", is(String.valueOf(name)))
+                .body("email", is(String.valueOf(email)))
+                .body("valor", is(1500))
+                .body("parcelas", is(5))
+                .body("seguro", is(INSURANCE))
         ;
     }
-    @Test
+
+    @Test(priority = 1, description = "Tenta criar uma nova simulação com CPF existente", groups = {"smoke.test"})
     public void validateExistingCpfTest(){
+        Map<String, Object> simulation =  new HashMap<>();
+        simulation.put("cpf", cpf);
+        simulation.put("nome", name);
+        simulation.put("email", email);
+        simulation.put("valor", 3000);
+        simulation.put("parcelas", 6);
+        simulation.put("seguro", INSURANCE);
         given()
-                .body("{\"cpf\": \"04054351000\", \"nome\": \"Anderson Mann\", \"email\": \"anderson@mann.com\", \"valor\": 1500, \"parcelas\": 5, \"seguro\": true}")
+                .body(simulation)
         .when()
-                .post("simulacoes")
+                .post(RESOURCE)
         .then()
                 .statusCode(400)
                 .body("mensagem", is("CPF duplicado"))
         ;
     }
 
-    @Test
-    public void verifyMandatoryDataTest(){
+    @Test(priority = 2, description = "Verifica os dados obrigatórios na criação de uma nova simulação", groups = {"smoke.test"})
+    public void validateMandatoryDataTest(){
         given()
                 .body("{\"cpf\": \"\", \"nome\": \"\", \"email\": \"\", \"valor\": null, \"null\": 5, \"seguro\": null}")
         .when()
-                .post("simulacoes")
+                .post(RESOURCE)
         .then()
                 .statusCode(400)
                 .body("erros.parcelas", is("Parcelas não pode ser vazio"))
@@ -62,33 +84,41 @@ public class CreateSimalationTest extends BaseTest {
         ;
     }
 
-    /**
-     * This method was created to reproduce a bug founded.
-     * Although the documentation does not address this scenario, It's possible create a new simulation with invalid CPF
-     */
-    @Test
-    public void createAnSimulationWithInvalidCpfTest(){
+    @Test(priority = 3, description = "Tenta criar uma nova simulação com valor maior que R$40.000", groups = {"smoke.test"})
+    public void validateMaximumValueTest(){
         Map<String, Object> simulation =  new HashMap<>();
-        simulation.put("cpf", "123456");
-        simulation.put("nome", "");
-        simulation.put("email", "a@a.com");
-        simulation.put("valor", 1000);
-        simulation.put("parcelas", 10);
-        simulation.put("seguro", false);
+        simulation.put("cpf", cpf);
+        simulation.put("nome", name);
+        simulation.put("email", email);
+        simulation.put("valor", 50000);
+        simulation.put("parcelas", 5);
+        simulation.put("seguro", true);
 
         given()
                 .body(simulation)
         .when()
-                .post("simulacoes")
+                .post(RESOURCE)
         .then()
-                .statusCode(201)
-                .body("id", is(notNullValue()))
-                .body("cpf", is("123456"))
-                .body("nome", is(""))
-                .body("email", is("a@a.com"))
-                .body("valor", is(1000))
-                .body("parcelas", is(10))
-                .body("seguro", is(false))
+                .statusCode(400)
+                .body("erros.valor", is("Valor deve ser menor ou igual a R$ 40.000"))
+       ;
+    }
+    @Test(priority = 4, description = "Tenta criar uma nova simulação com numero de parcelas menor que 2", groups = {"smoke.test"})
+    public void validateMinimumNumberInstallments(){
+        Map<String, Object> simulation =  new HashMap<>();
+        simulation.put("cpf", cpf);
+        simulation.put("nome", name);
+        simulation.put("email", email);
+        simulation.put("valor", 20000);
+        simulation.put("parcelas", 1);
+        simulation.put("seguro", INSURANCE);
+        given()
+                .body(simulation)
+        .when()
+                .post(RESOURCE)
+        .then()
+                .statusCode(400)
+                .body("erros.parcelas", is("Parcelas deve ser igual ou maior que 2"))
         ;
     }
 }
