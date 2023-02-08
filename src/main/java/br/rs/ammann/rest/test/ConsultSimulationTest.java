@@ -11,6 +11,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class ConsultSimulationTest extends BaseTest {
+
     @Test(priority = 1, description = "Realiza a consulta de uma simulação", groups = {"smoke.test"})
     public void consultSimulationTest(){
         given()
@@ -22,6 +23,7 @@ public class ConsultSimulationTest extends BaseTest {
                 .body("cpf", is("66414919004"))
         ;
     }
+
     @Test(priority = 2, description = "Consulta um CPF inexistente", groups = {"smoke.test"})
     public void consultCpfWithOutSimulationTest(){
         given()
@@ -32,6 +34,7 @@ public class ConsultSimulationTest extends BaseTest {
                 .body("mensagem", is("CPF 66414919005 não encontrado"))
         ;
     }
+
     @Test(priority = 3, description = "Recebe uma lista de simulações e verifica a existência de um nome específico", groups = {"smoke.test"})
     public void consultSimulationByName(){
         ArrayList<String> names =
@@ -45,6 +48,7 @@ public class ConsultSimulationTest extends BaseTest {
         assertEquals(1, names.size());
         assertEquals("Deltrano", names.get(0));
     }
+
     @Test(priority = 4, description = "Verifica se existe alguma simulação cadastrada", groups = {"smoke.test"})
     public void verifyIfListOfSimulationIsEmpity(){
         ArrayList<String> simulations =
