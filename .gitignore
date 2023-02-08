@@ -61,5 +61,3 @@ logs/*
 browserstack.err
 /allure-results/
 /.allure/
-/src/main/java/br/rs/ammann/rest/treinamento/
-/src/main/resources/treinamento/
