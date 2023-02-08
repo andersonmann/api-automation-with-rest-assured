@@ -11,6 +11,10 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+/**
+ * @author anderson.mann
+ *
+ */
 
 public class CreateSimalationTest extends BaseTest {
     private static final String RESOURCE = "simulacoes";
@@ -19,6 +23,7 @@ public class CreateSimalationTest extends BaseTest {
     String cpf = dataGenerator.createCpf();
     String name = dataGenerator.createUserName();
     String email = dataGenerator.createEmail();
+
     @Test(priority = 0, description = "Cria uma nova simulação", groups = {"smoke.test"})
     public void createSimulationTest(){
         Map<String, Object> simulation =  new HashMap<>();
