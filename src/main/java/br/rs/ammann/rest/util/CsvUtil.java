@@ -1,4 +1,4 @@
-package serasa.ecs.utils;
+package br.rs.ammann.rest.util;
 
 import com.opencsv.CSVReader;
 
