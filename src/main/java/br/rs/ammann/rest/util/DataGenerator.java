@@ -1,7 +1,11 @@
 package br.rs.ammann.rest.util;
 
 import java.util.Random;
-import java.util.logging.Logger;
+
+/**
+ * @author anderson.mann
+ *
+ */
 
 public class DataGenerator {
 
@@ -22,6 +26,7 @@ public class DataGenerator {
      *
      * @return
      */
+
     public String createEmail() {
         String prefix = "emailtest";
         String provider = "@gmail.com";
