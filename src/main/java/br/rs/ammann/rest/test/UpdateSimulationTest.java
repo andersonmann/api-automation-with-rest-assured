@@ -1,28 +1,32 @@
-package br.rs.ammann.rest.tasks;
+package br.rs.ammann.rest.test;
 
 import br.rs.ammann.rest.core.BaseTest;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
+/**
+ * @author anderson.mann
+ *
+ */
 
 public class UpdateSimulationTest extends BaseTest {
 
-    @Test
+    @Test(priority = 0, description = "Altera os dados de uma simulação existente", groups = {"smoke.test"})
     public void updateSimulationTest() {
         given()
-                .body("{\"email\": \"abcd@mann.com\", \"parcelas\": 16, \"seguro\": false}")
+                .body("{\"email\": \"abcde@mann.com\", \"parcelas\": 12, \"seguro\": false}")
         .when()
                 .put("simulacoes/66414919004")
         .then()
                 .statusCode(200)
-                .body("email", is("abcd@mann.com"))
-                .body("parcelas", is(16))
+                .body("email", is("abcde@mann.com"))
+                .body("parcelas", is(12))
                 .body("seguro", is(false))
         ;
     }
 
-    @Test
+    @Test(priority = 1, description = "Verifica os dados obrigatórios durante a alteração de uma simulação", groups = {"smoke.test"})
     public void verifyMandatoryDataInUpdateSimulationTest() {
         given()
                 .body("{\"email\": \"\", \"parcelas\": 15, \"seguro\": true}")
@@ -34,7 +38,7 @@ public class UpdateSimulationTest extends BaseTest {
         ;
     }
 
-    @Test
+    @Test(priority = 2, description = "Tenta alterar uma simulação inexistente", groups = {"smoke.test"})
     public void updateNonexistentSimulationTest() {
         given()
                 .body("{\"email\": \"abcefg@mann.com\", \"valor\": 9333, \"parcelas\": 11, \"seguro\": false}")
