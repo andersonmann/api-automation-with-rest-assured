@@ -1,4 +1,4 @@
-package br.rs.ammann.rest.model;
+package br.rs.mann.rest.model;
 
 public class User {
     private String cpf = "56991792080";

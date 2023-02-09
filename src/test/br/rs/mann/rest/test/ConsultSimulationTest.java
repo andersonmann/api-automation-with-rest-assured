@@ -1,6 +1,6 @@
-package br.rs.ammann.rest.test;
+package br.rs.mann.rest.test;
 
-import br.rs.ammann.rest.core.BaseTest;
+import br.rs.mann.rest.core.BaseTest;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -12,25 +12,24 @@ import static org.testng.Assert.assertTrue;
 
 /**
  * @author anderson.mann
- *
  */
 
 public class ConsultSimulationTest extends BaseTest {
 
-    @Test(priority = 1, description = "Realiza a consulta de uma simulação", groups = {"smoke.test"})
-    public void consultSimulationTest(){
+    @Test(description = "Realiza a consulta de uma simulação")
+    public void consultSimulationTest() {
         given()
-        .when()
+                .when()
                 .get("simulacoes/66414919004")
-        .then()
+                .then()
                 .statusCode(200)
                 .body("nome", is("Fulano"))
                 .body("cpf", is("66414919004"))
         ;
     }
 
-    @Test(priority = 2, description = "Consulta um CPF inexistente", groups = {"smoke.test"})
-    public void consultCpfWithOutSimulationTest(){
+    @Test(description = "Consulta um CPF inexistente")
+    public void consultCpfWithOutSimulationTest() {
         given()
         .when()
                 .get("simulacoes/66414919005")
@@ -40,30 +39,28 @@ public class ConsultSimulationTest extends BaseTest {
         ;
     }
 
-    @Test(priority = 3, description = "Recebe uma lista de simulações e verifica a existência de um nome específico", groups = {"smoke.test"})
-    public void consultSimulationByName(){
+    @Test(description = "Recebe uma lista de simulações e verifica a existência de um nome específico")
+    public void consultSimulationByName() {
         ArrayList<String> names =
                 given()
                 .when()
                         .get("simulacoes")
                 .then()
                         .statusCode(200)
-                        .extract().path("nome.findAll{it.startsWith('Deltrano')}")
-                ;
+                        .extract().path("nome.findAll{it.startsWith('Deltrano')}");
         assertEquals(1, names.size());
         assertEquals("Deltrano", names.get(0));
     }
 
-    @Test(priority = 4, description = "Verifica se existe alguma simulação cadastrada", groups = {"smoke.test"})
-    public void verifyIfListOfSimulationIsEmpity(){
+    @Test(description = "Verifica se existe alguma simulação cadastrada")
+    public void verifyIfListOfSimulationIsEmpity() {
         ArrayList<String> simulations =
                 given()
                 .when()
                         .get("simulacoes")
                 .then()
                         .statusCode(200)
-                        .extract().path("nome.findAll{it != null}")
-                ;
+                        .extract().path("nome.findAll{it != null}");
         assertTrue(!simulations.isEmpty());
     }
 }

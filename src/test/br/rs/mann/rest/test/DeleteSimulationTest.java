@@ -1,6 +1,6 @@
-package br.rs.ammann.rest.test;
+package br.rs.mann.rest.test;
 
-import br.rs.ammann.rest.core.BaseTest;
+import br.rs.mann.rest.core.BaseTest;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 
 public class DeleteSimulationTest extends BaseTest {
 
-    @Test(priority = 0, description = "Deleta a simulação desejada", groups = {"smoke.test"})
+    @Test(description = "Deleta a simulação desejada")
     public void deleteSimulation() {
         given()
         .when()
