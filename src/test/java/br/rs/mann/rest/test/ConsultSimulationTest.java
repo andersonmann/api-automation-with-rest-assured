@@ -16,7 +16,7 @@ import static org.testng.Assert.assertTrue;
 
 public class ConsultSimulationTest extends BaseTest {
 
-    @Test(description = "Realiza a consulta de uma simulação")
+    @Test(description = "Realiza a consulta de uma simulacao")
     public void consultSimulationTest() {
         given()
                 .when()
@@ -39,7 +39,7 @@ public class ConsultSimulationTest extends BaseTest {
         ;
     }
 
-    @Test(description = "Recebe uma lista de simulações e verifica a existência de um nome específico")
+    @Test(description = "Recebe uma lista de simulacoes e verifica a existencia de um nome especifico")
     public void consultSimulationByName() {
         ArrayList<String> names =
                 given()
@@ -52,7 +52,7 @@ public class ConsultSimulationTest extends BaseTest {
         assertEquals("Deltrano", names.get(0));
     }
 
-    @Test(description = "Verifica se existe alguma simulação cadastrada")
+    @Test(description = "Verifica se existe alguma simulacao cadastrada")
     public void verifyIfListOfSimulationIsEmpity() {
         ArrayList<String> simulations =
                 given()

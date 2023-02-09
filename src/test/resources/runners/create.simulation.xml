@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Criar simulações" thread-count="2" parallel="methods">
-    <test name="Realiza validações das regras de criação de simulação">
+<suite name="Criar simulacoes" thread-count="2" parallel="methods">
+    <test name="Realiza validacoes das regras de criacao de simulacao">
         <classes>
             <class name="br.rs.mann.rest.test.CreateSimalationTest"/>
         </classes>
