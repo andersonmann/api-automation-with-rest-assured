@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 
 public class DeleteSimulationTest extends BaseTest {
 
-    @Test(description = "Deleta a simulacao desejada")
+    @Test(description = "Deleta a simulacao passada por parametro")
     public void deleteSimulation() {
         given()
         .when()
