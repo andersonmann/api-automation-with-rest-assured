@@ -5,17 +5,20 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
+/**
+ * @author anderson.mann
+ *
+ */
 
 public class SchemaTest extends BaseTest {
 
-    @Test
+    @Test(description = "Valida o contrato do recurso simulacoes")
     public void validateSchemaTest(){
         given()
                 .log().all()
         .when()
                 .get("simulacoes")
         .then()
-//                .log().all()
                 .statusCode(200)
                 .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("simulation.json"))
         ;
