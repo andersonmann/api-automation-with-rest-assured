@@ -23,7 +23,7 @@ public class CreateSimalationTest extends BaseTest {
     String name = dataGenerator.createUserName();
     String email = dataGenerator.createEmail();
 
-    @Test(description = "Cria uma nova simulação")
+    @Test(description = "Cria uma nova simulacao")
     public void createSimulationTest(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);
@@ -50,7 +50,7 @@ public class CreateSimalationTest extends BaseTest {
         ;
     }
 
-    @Test(description = "Tenta criar uma nova simulação com CPF existente")
+    @Test(description = "Tenta criar uma nova simulacao com CPF existente")
     public void validateExistingCpfTest(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);
@@ -69,7 +69,7 @@ public class CreateSimalationTest extends BaseTest {
         ;
     }
 
-    @Test(description = "Verifica os dados obrigatórios na criação de uma nova simulação")
+    @Test(description = "Verifica os dados obrigatorios na criacao de uma nova simulacao")
     public void validateMandatoryDataTest(){
         given()
                 .body("{\"cpf\": \"\", \"nome\": \"\", \"email\": \"\", \"valor\": null, \"null\": 5, \"seguro\": null}")
@@ -83,7 +83,7 @@ public class CreateSimalationTest extends BaseTest {
         ;
     }
 
-    @Test(description = "Tenta criar uma nova simulação com valor maior que R$40.000")
+    @Test(description = "Tenta criar uma nova simulacao com valor maior que R$40.000")
     public void validateMaximumValueTest(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);
@@ -102,7 +102,7 @@ public class CreateSimalationTest extends BaseTest {
                 .body("erros.valor", is("Valor deve ser menor ou igual a R$ 40.000"))
        ;
     }
-    @Test(description = "Tenta criar uma nova simulação com numero de parcelas menor que 2")
+    @Test(description = "Tenta criar uma nova simulacao com numero de parcelas menor que 2")
     public void validateMinimumNumberInstallments(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);

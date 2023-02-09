@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Excluir simulações">
-    <test name="Realiza a exclusão de simulações">
+<suite name="Excluir simulacoes" thread-count="2" parallel="methods">
+    <test name="Realiza a exclusao de simulacoes">
         <classes>
             <class name="br.rs.mann.rest.test.DeleteSimulationTest"/>
         </classes>

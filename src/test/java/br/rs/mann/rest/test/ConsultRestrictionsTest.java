@@ -23,7 +23,7 @@ public class ConsultRestrictionsTest extends BaseTest {
         return CsvUtil.readAll("src/test/resources/data/restrictions.csv", false);
     }
 
-    @Test(description = "Verifica se o CPF informado possui alguma restrição", dataProvider = "restriction_users")
+    @Test(description = "Verifica se o CPF informado possui alguma restricao", dataProvider = "restriction_users")
     public void validateCpfWithRestrictionTest(String cpf) {
         given()
         .when()
@@ -34,7 +34,7 @@ public class ConsultRestrictionsTest extends BaseTest {
         ;
     }
 
-    @Test(description = "Realiza a consulta de um CPF inexistente na lista de restrições")
+    @Test(description = "Realiza a consulta de um CPF inexistente na lista de restricoes")
     public void validateCpfWithOutRestrictionTest() {
         String cpf = dataGenerator.createCpf();
         given()
