@@ -91,7 +91,7 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 
 ```
 .
-└└── src
+└── src
    └── test
        └── java
            ├── core
