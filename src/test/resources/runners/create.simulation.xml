@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Criar simulações">
+    <test name="Realiza validações das regras de criação de simulação">
+        <classes>
+            <class name="br.rs.mann.rest.test.CreateSimalationTest"/>
+        </classes>
+    </test>
+</suite>
