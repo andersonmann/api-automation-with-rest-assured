@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.is;
 
 public class UpdateSimulationTest extends BaseTest {
 
-    @Test(description = "Altera os dados de uma simulação existente")
+    @Test(description = "Altera os dados de uma simulacao existente")
     public void updateSimulationTest() {
         given()
                 .body("{\"email\": \"abcde@mann.com\", \"parcelas\": 9, \"seguro\": false}")
@@ -26,7 +26,7 @@ public class UpdateSimulationTest extends BaseTest {
         ;
     }
 
-    @Test(description = "Verifica os dados obrigatórios durante a alteração de uma simulação")
+    @Test(description = "Verifica os dados obrigatorios durante a alteracao de uma simulacao")
     public void verifyMandatoryDataInUpdateSimulationTest() {
         given()
                 .body("{\"email\": \"\", \"parcelas\": 15, \"seguro\": true}")
@@ -38,7 +38,7 @@ public class UpdateSimulationTest extends BaseTest {
         ;
     }
 
-    @Test(priority = 2, description = "Tenta alterar uma simulação inexistente", groups = {"smoke.test"})
+    @Test(priority = 2, description = "Tenta alterar uma simulacao inexistente", groups = {"smoke.test"})
     public void updateNonexistentSimulationTest() {
         given()
                 .body("{\"email\": \"abcefg@mann.com\", \"valor\": 9333, \"parcelas\": 11, \"seguro\": false}")
