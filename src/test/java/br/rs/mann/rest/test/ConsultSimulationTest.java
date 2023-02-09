@@ -48,8 +48,8 @@ public class ConsultSimulationTest extends BaseTest {
                 .then()
                         .statusCode(200)
                         .extract().path("nome.findAll{it.startsWith('Deltrano')}");
-        assertEquals(1, names.size());
-        assertEquals("Deltrano", names.get(0));
+        assertEquals(names.size(),1);
+        assertEquals(names.get(0), "Deltrano");
     }
 
     @Test(description = "Verifica se existe alguma simulacao cadastrada")
