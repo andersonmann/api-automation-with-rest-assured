@@ -98,7 +98,7 @@
     <profiles>
 
         <profile>
-            <id>regressitonTest</id>
+            <id>regressionTest</id>
             <build>
                 <plugins>
                     <plugin>
@@ -110,6 +110,7 @@
                                 <testType>parallel</testType>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
+                                <suiteXmlFile>src/test/resources/runners/schema.xml</suiteXmlFile>
                                 <suiteXmlFile>src/test/resources/runners/consult.restriction.xml</suiteXmlFile>
                                 <suiteXmlFile>src/test/resources/runners/consult.simulation.xml</suiteXmlFile>
                                 <suiteXmlFile>src/test/resources/runners/create.simulation.xml</suiteXmlFile>
