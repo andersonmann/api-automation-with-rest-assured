@@ -23,7 +23,7 @@ public class CreateSimalationTest extends BaseTest {
     String name = dataGenerator.createUserName();
     String email = dataGenerator.createEmail();
 
-    @Test(description = "Cria uma nova simulacao")
+    @Test(priority = 0, description = "Cria uma nova simulacao")
     public void createSimulationTest(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);
@@ -50,7 +50,7 @@ public class CreateSimalationTest extends BaseTest {
         ;
     }
 
-    @Test(description = "Tenta criar uma nova simulacao com CPF existente")
+    @Test(priority = 1, description = "Tenta criar uma nova simulacao com CPF existente")
     public void validateExistingCpfTest(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);
