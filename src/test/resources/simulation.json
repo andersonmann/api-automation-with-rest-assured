@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "cpf": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "valor": {
+          "type": "number"
+        },
+        "parcelas": {
+          "type": "integer"
+        },
+        "seguro": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "nome",
+        "cpf",
+        "email",
+        "valor",
+        "parcelas",
+        "seguro"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "cpf": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "valor": {
+          "type": "number"
+        },
+        "parcelas": {
+          "type": "integer"
+        },
+        "seguro": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "nome",
+        "cpf",
+        "email",
+        "valor",
+        "parcelas",
+        "seguro"
+      ]
+    }
+  ]
+}
