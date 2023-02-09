@@ -38,7 +38,7 @@ public class UpdateSimulationTest extends BaseTest {
         ;
     }
 
-    @Test(priority = 2, description = "Tenta alterar uma simulacao inexistente", groups = {"smoke.test"})
+    @Test(description = "Tenta alterar uma simulacao inexistente")
     public void updateNonexistentSimulationTest() {
         given()
                 .body("{\"email\": \"abcefg@mann.com\", \"valor\": 9333, \"parcelas\": 11, \"seguro\": false}")
