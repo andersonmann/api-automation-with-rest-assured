@@ -1,8 +1,8 @@
-package br.rs.ammann.rest.test;
+package br.rs.mann.rest.test;
 
-import br.rs.ammann.rest.core.BaseTest;
-import br.rs.ammann.rest.util.CsvUtil;
-import br.rs.ammann.rest.util.DataGenerator;
+import br.rs.mann.rest.util.CsvUtil;
+import br.rs.mann.rest.util.DataGenerator;
+import br.rs.mann.rest.core.BaseTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -21,7 +21,7 @@ public class RestrictionsConsultTest extends BaseTest {
 
     @DataProvider(name = "restriction_users")
     public Iterator<String[]> provider() throws Exception {
-        return CsvUtil.readAll("src/main/resources/data/restrictions.csv", false);
+        return CsvUtil.readAll("src/test/resources/data/restrictions.csv", false);
     }
 
     @Test(priority = 0, description = "Verifica se o CPF informado possui alguma restrição", dataProvider = "restriction_users", groups = {"smoke.test"})
