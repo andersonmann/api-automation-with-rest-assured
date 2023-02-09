@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Consultar restricoes" thread-count="5" parallel="methods">
+<suite name="Consultar restricoes" thread-count="2" parallel="methods">
     <test name="Realiza consultas dos cpfs que possuem restricao">
         <classes>
             <class name="br.rs.mann.rest.test.ConsultRestrictionsTest"/>
