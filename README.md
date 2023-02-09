@@ -32,7 +32,6 @@ Este repositório contém os seguintes testes:
 | UpdateSimulationTest  | updateSimulationTest                        | Altera os dados de uma simulacao existente.                                                |
 | UpdateSimulationTest  | verifyMandatoryDataInUpdateSimulationTest   | Verifica os dados obrigatorios durante a alteracao de uma simulacao.                       |
 | UpdateSimulationTest  | updateNonexistentSimulationTest             |Tenta alterar uma simulacao inexistente.                                                                                          |
-  
 ---
 
 ## Configuração do repositório
@@ -47,23 +46,6 @@ Este repositório contém os seguintes testes:
     ```sh
      mvn install -DskipTests
     ```
----
-
-## Gerar relatórios Allure
-
-- Após a execução dos testes, gere o relatório usando o seguinte comando:
-
-  
-  ```sh
-  mvn allure:report
-  ```
-
-- Inciar o servidor e visualizar o relatório:
-
-  
-  ```sh
-  mvn allure:serve
-  ```
 ---
 
 ## Executando os testes
@@ -86,6 +68,66 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
     ```
   Onde, o argumento `test` pode ser qualquer classe de teste implementada neste repositório.
 
+---
+
+## Gerar relatórios
+
+- Após a execução dos testes, gere o relatório usando o seguinte comando:
+
+
+  ```sh
+  mvn allure:report
+  ```
+
+- Inciar o servidor e visualizar o relatório:
+
+
+  ```sh
+  mvn allure:serve
+  ```
+---
+
+## Estrutura do projeto
+
+```
+.
+└└── src
+   └── test
+       └── java
+           ├── core
+           │   └── BaseTest.java
+           │   └── Constants.java
+           ├── test
+           │   └── ConsultRestrictionsTest.java
+           │   └── ConsultSimulationTest.java
+           │   └── CreateSimalationTest.java
+           │   └── DeleteSimulationTest.java
+           │   └── SchemaTest.java
+           │   └── UpdateSimulationTest.java                      
+           │── util
+           │   └── CsvUtil.java
+           │   └── DataGenerator.java
+
+           └── resources
+                  └── data
+                  │   └── restrictions.csv
+                  ├── runners
+                  │   └── consult.restriction.xml
+                  │   └── consult.simulation.xml
+                  │   └── create.simulation.xml
+                  │   └── delete.simulation..xml
+                  │   └── schema.xml
+                  │   └── update.simulation.xml
+                  └── allure.properties
+                  └── simulation.json
+└── target
+       └── reports folders
+└── pom.xml
+
+```
+
+---
+
 ## Built With
 
 * [RestAssured](https://github.com/rest-assured/rest-assured) - Framework de testes 
@@ -96,18 +138,19 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 
 
 ## Versionamento
-
-Semantic Versioning 2.0.0(https://semver.org/).
+* [Semantic Versioning 2.0.0](https://semver.org/)
 
 ## Autor
 
-* **Anderson Mann** - *Software Development Specialist * - [GitHub](https://github.com/andersonmann)
+**Anderson Mann** - *Software Development Specialist II* 
+- [GitHub](https://github.com/andersonmann)
+- [Linkedin](https://www.linkedin.com/in/andersonmann/)
 
-## License
+## Licença
 
 This project is licensed under the GNU License.
 
 ## Roadmap
 - imagem Docker do Java e Maven
-- 
+- teste de contrato com PACT.IO
 
