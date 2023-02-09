@@ -1,4 +1,4 @@
-package br.rs.ammann.rest.core;
+package br.rs.mann.rest.core;
 
 import io.restassured.http.ContentType;
 

@@ -1,6 +1,6 @@
-package br.rs.ammann.rest.tasks;
+package br.rs.mann.rest.test;
 
-import br.rs.ammann.rest.core.BaseTest;
+import br.rs.mann.rest.core.BaseTest;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import org.junit.Test;
 

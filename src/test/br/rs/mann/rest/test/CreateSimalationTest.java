@@ -1,9 +1,8 @@
-package br.rs.ammann.rest.test;
+package br.rs.mann.rest.test;
 
-import br.rs.ammann.rest.core.BaseTest;
-import br.rs.ammann.rest.util.DataGenerator;
+import br.rs.mann.rest.core.BaseTest;
+import br.rs.mann.rest.util.DataGenerator;
 import org.testng.annotations.Test;
-
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +23,7 @@ public class CreateSimalationTest extends BaseTest {
     String name = dataGenerator.createUserName();
     String email = dataGenerator.createEmail();
 
-    @Test(priority = 0, description = "Cria uma nova simulação", groups = {"smoke.test"})
+    @Test(description = "Cria uma nova simulação")
     public void createSimulationTest(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);
@@ -51,7 +50,7 @@ public class CreateSimalationTest extends BaseTest {
         ;
     }
 
-    @Test(priority = 1, description = "Tenta criar uma nova simulação com CPF existente", groups = {"smoke.test"})
+    @Test(description = "Tenta criar uma nova simulação com CPF existente")
     public void validateExistingCpfTest(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);
@@ -70,7 +69,7 @@ public class CreateSimalationTest extends BaseTest {
         ;
     }
 
-    @Test(priority = 2, description = "Verifica os dados obrigatórios na criação de uma nova simulação", groups = {"smoke.test"})
+    @Test(description = "Verifica os dados obrigatórios na criação de uma nova simulação")
     public void validateMandatoryDataTest(){
         given()
                 .body("{\"cpf\": \"\", \"nome\": \"\", \"email\": \"\", \"valor\": null, \"null\": 5, \"seguro\": null}")
@@ -84,7 +83,7 @@ public class CreateSimalationTest extends BaseTest {
         ;
     }
 
-    @Test(priority = 3, description = "Tenta criar uma nova simulação com valor maior que R$40.000", groups = {"smoke.test"})
+    @Test(description = "Tenta criar uma nova simulação com valor maior que R$40.000")
     public void validateMaximumValueTest(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);
@@ -103,7 +102,7 @@ public class CreateSimalationTest extends BaseTest {
                 .body("erros.valor", is("Valor deve ser menor ou igual a R$ 40.000"))
        ;
     }
-    @Test(priority = 4, description = "Tenta criar uma nova simulação com numero de parcelas menor que 2", groups = {"smoke.test"})
+    @Test(description = "Tenta criar uma nova simulação com numero de parcelas menor que 2")
     public void validateMinimumNumberInstallments(){
         Map<String, Object> simulation =  new HashMap<>();
         simulation.put("cpf", cpf);

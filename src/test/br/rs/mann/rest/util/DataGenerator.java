@@ -1,4 +1,4 @@
-package br.rs.ammann.rest.util;
+package br.rs.mann.rest.util;
 
 import java.util.Random;
 
