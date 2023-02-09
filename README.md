@@ -1,6 +1,34 @@
 # api-automation-with-rest-assured
 
+## About the tests in this repository
 
+Este repositório contém os seguintes testes:
+
+| Classe      | Nome do teste                           | Descrição                                                                                  |
+  |-----------------------------------------|--------------------------------------------------------------------------------------------| --- |
+| ConsultRestrictionsTest  | validateCpfWithRestrictionTest          | Verifica se o CPF informado possui alguma restricao.                                       |
+| ConsultRestrictionsTest  | validateCpfWithOutRestrictionTest       | Realiza a consulta de um CPF inexistente na lista de restricoes.                           |
+|   |                                         |                                                                                            |
+| ConsultSimulationTest  | consultSimulationTest                   | Realiza a consulta de uma simulacao.                                                       |
+| ConsultSimulationTest  | consultCpfWithOutSimulationTest         | Consulta um CPF inexistente.                                                               |
+| ConsultSimulationTest  | consultSimulationByName                 | Recebe uma lista de simulacoes e verifica a existencia de um nome especifico.              |
+| ConsultSimulationTest  | verifyIfListOfSimulationIsEmpity        | Verifica se existe alguma simulacao cadastrada.                                            |
+|   |                                         |                                                                                            |
+| CreateSimalationTest  | createSimulationTest                    | Cria uma nova simulacao utilizando os seguinte dados randomizados: cpf(válido), nome, email. |
+| CreateSimalationTest  | validateExistingCpfTest                 | Tenta criar uma nova simulacao utilizando um CPF já existente.                             |
+| CreateSimalationTest  | validateMandatoryDataTest               | Verifica os dados obrigatorios na criacao de uma nova simulacao.                           |
+| CreateSimalationTest  | validateMaximumValueTest                | Tenta criar uma nova simulacao com valor maior que R$40.000.                               |
+| CreateSimalationTest  | validateMinimumNumberInstallments       | Tenta criar uma nova simulacao com numero de parcelas menor que 2.                         |
+|   |                                         |                                                                                            |
+| DeleteSimulationTest  | deleteSimulation                        | Deleta a simulacao passada por parametro.                                                  |
+|   |                                         |                                                                                            |
+| SchemaTest  | validateSchemaTest                      | Valida o contrato do recurso simulacoes.                                                   |
+|   |                         |                                                                                            |
+| UpdateSimulationTest  | updateSimulationTest                        | Altera os dados de uma simulacao existente.                                                |
+| UpdateSimulationTest  | verifyMandatoryDataInUpdateSimulationTest   | Verifica os dados obrigatorios durante a alteracao de uma simulacao.                       |
+| UpdateSimulationTest  | updateNonexistentSimulationTest             |Tenta alterar uma simulacao inexistente.                                                                                          |
+  
+---
 
 ## Getting started
 
