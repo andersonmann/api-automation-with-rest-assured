@@ -1,92 +1,157 @@
-# api-automation-with-rest-assured
+# api-automation-test-with-rest-assured
+
+## Descrição
+Este código foi desenvolvido para o desafio técnico Sicredi.
+Estas instruções fornecerão uma cópia do projeto para execução e alteração em sua máquina local para fins de desenvolvimento e teste. 
+Consulte as instruções abaixo para saber como baixar e executar o projeto.
+
+## Sobre os testes implementados neste repositório
+
+Este repositório contém os seguintes testes:
+
+| Classe      | Nome do teste                           | Descrição                                                                                  |
+  |-----------------------------------------|--------------------------------------------------------------------------------------------| --- |
+| ConsultRestrictionsTest  | validateCpfWithRestrictionTest          | Verifica se o CPF informado possui alguma restricao.                                       |
+| ConsultRestrictionsTest  | validateCpfWithOutRestrictionTest       | Realiza a consulta de um CPF inexistente na lista de restricoes.                           |
+|   |                                         |                                                                                            |
+| ConsultSimulationTest  | consultSimulationTest                   | Realiza a consulta de uma simulacao.                                                       |
+| ConsultSimulationTest  | consultCpfWithOutSimulationTest         | Consulta um CPF inexistente.                                                               |
+| ConsultSimulationTest  | consultSimulationByName                 | Recebe uma lista de simulacoes e verifica a existencia de um nome especifico.              |
+| ConsultSimulationTest  | verifyIfListOfSimulationIsEmpity        | Verifica se existe alguma simulacao cadastrada.                                            |
+|   |                                         |                                                                                            |
+| CreateSimalationTest  | createSimulationTest                    | Cria uma nova simulacao utilizando os seguinte dados randomizados: cpf(válido), nome, email. |
+| CreateSimalationTest  | validateExistingCpfTest                 | Tenta criar uma nova simulacao utilizando um CPF já existente.                             |
+| CreateSimalationTest  | validateMandatoryDataTest               | Verifica os dados obrigatorios na criacao de uma nova simulacao.                           |
+| CreateSimalationTest  | validateMaximumValueTest                | Tenta criar uma nova simulacao com valor maior que R$40.000.                               |
+| CreateSimalationTest  | validateMinimumNumberInstallments       | Tenta criar uma nova simulacao com numero de parcelas menor que 2.                         |
+|   |                                         |                                                                                            |
+| DeleteSimulationTest  | deleteSimulation                        | Deleta a simulacao passada por parametro.                                                  |
+|   |                                         |                                                                                            |
+| SchemaTest  | validateSchemaTest                      | Valida o contrato do recurso simulacoes.                                                   |
+|   |                         |                                                                                            |
+| UpdateSimulationTest  | updateSimulationTest                        | Altera os dados de uma simulacao existente.                                                |
+| UpdateSimulationTest  | verifyMandatoryDataInUpdateSimulationTest   | Verifica os dados obrigatorios durante a alteracao de uma simulacao.                       |
+| UpdateSimulationTest  | updateNonexistentSimulationTest             |Tenta alterar uma simulacao inexistente.                                                                                          |
+---
+
+## Configuração do repositório
+
+- Clone o repositório
+- Navegue até o diretório raiz do projeto
+- Certifique-se de ter as seguintes dependências instaladas na máquina
+    - Java >= 11
+    - Maven >= 3.1+
+
+  Execute o seguinte comando para insatalar as dependências necessárias:
+    ```sh
+     mvn install -DskipTests
+    ```
+---
+
+## Executando os testes
+
+Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/introduction/introduction-to-profiles.html#introduction-to-build-profiles) para organizar um conjunto de testes e suas características.
+
+- Como executar um perfil?
+
+  Foi criado um perfil que contém todas as suites de testes, o propósito dessa estratégia é simular a execução dos testes regressivos.
+  Para executar o perfil de teste padrão, use o seguinte comando:
+
+   ```sh
+    mvn clean test -P regressionTest
+    ```
+
+  Para executar uma classe específica, use o seguinte comando:
+
+  ```sh
+    mvn clean test -P regressionTest -Dtest=ConsultRestrictionsTest
+    ```
+  Onde, o argumento `test` pode ser qualquer classe de teste implementada neste repositório.
+
+---
+
+## Gerar relatórios
+
+- Após a execução dos testes, gere o relatório usando o seguinte comando:
 
 
+  ```sh
+  mvn allure:report
+  ```
 
-## Getting started
+- Inciar o servidor e visualizar o relatório:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+  ```sh
+  mvn allure:serve
+  ```
+---
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Estrutura do projeto
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/andersonmann/api-automation-with-rest-assured.git
-git branch -M main
-git push -uf origin main
+.
+└── src
+   └── test
+       └── java
+           ├── core
+           │   └── BaseTest.java
+           │   └── Constants.java
+           ├── test
+           │   └── ConsultRestrictionsTest.java
+           │   └── ConsultSimulationTest.java
+           │   └── CreateSimalationTest.java
+           │   └── DeleteSimulationTest.java
+           │   └── SchemaTest.java
+           │   └── UpdateSimulationTest.java                      
+           │── util
+           │   └── CsvUtil.java
+           │   └── DataGenerator.java
+
+           └── resources
+                  └── data
+                  │   └── restrictions.csv
+                  ├── runners
+                  │   └── consult.restriction.xml
+                  │   └── consult.simulation.xml
+                  │   └── create.simulation.xml
+                  │   └── delete.simulation..xml
+                  │   └── schema.xml
+                  │   └── update.simulation.xml
+                  └── allure.properties
+                  └── simulation.json
+└── target
+       └── reports folders
+└── README.md
+└── pom.xml
+
 ```
 
-## Integrate with your tools
+---
 
-- [ ] [Set up project integrations](https://gitlab.com/andersonmann/api-automation-with-rest-assured/-/settings/integrations)
+## Stack 
 
-## Collaborate with your team
+* [RestAssured](https://github.com/rest-assured/rest-assured) - Framework de testes 
+* [TestNG](https://testng.org/doc/documentation-main.html/) - Framework de testes
+* [MAVEN](https://maven.apache.org/) - Gerenciador de dependências e build
+* [JAVA](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html/) - Linguagem de programação
+* [SonarLint](https://www.sonarlint.org/eclipse/) - Lint
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
 
-## Test and Deploy
+## Versionamento
+* [Semantic Versioning 2.0.0](https://semver.org/)
 
-Use the built-in continuous integration in GitLab.
+## Autor
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+**Anderson Mann** - *Software Development Specialist II* 
+- [GitHub](https://github.com/andersonmann)
+- [Linkedin](https://www.linkedin.com/in/andersonmann/)
 
-***
+## Licença
 
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+This project is licensed under the GNU License.
 
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+- imagem Docker do Java e Maven
+- teste de contrato com PACT.IO
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
