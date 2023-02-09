@@ -128,7 +128,7 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 
 ---
 
-## Built With
+## Stack 
 
 * [RestAssured](https://github.com/rest-assured/rest-assured) - Framework de testes 
 * [TestNG](https://testng.org/doc/documentation-main.html/) - Framework de testes
