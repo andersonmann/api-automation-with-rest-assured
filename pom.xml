@@ -98,7 +98,7 @@
     <profiles>
 
         <profile>
-            <id>restrictions</id>
+            <id>regressitonTest</id>
             <build>
                 <plugins>
                     <plugin>
