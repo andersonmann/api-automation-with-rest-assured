@@ -132,7 +132,7 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 
 ## Tarefas realizadas
 Foi utilizado para fins de controle de atividades a funcionalidade *Issues* que o GitLab fornece.
-Acessando o [link](https://gitlab.com/andersonmann/api-automation-with-rest-assured/-/issues/?sort=created_date&state=all&first_page_size=20) podem ser
+Acessando a seção [issues](https://gitlab.com/andersonmann/api-automation-with-rest-assured/-/issues/?sort=created_date&state=all&first_page_size=20) podem ser
 encontradas todas as atividades criadas durante o desenvolvimento desse projeto.
 
 ---
