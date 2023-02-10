@@ -1,0 +1,7 @@
+[Fri Feb 10 17:13:09 BRT 2023] INFO: HOST utilizado: http://localhost 
+[Fri Feb 10 17:13:09 BRT 2023] INFO: Porta padrão? 8080 
+[Fri Feb 10 17:13:09 BRT 2023] INFO: Base path utilizado: api/v1/ 
+[Fri Feb 10 17:13:09 BRT 2023] INFO: Formato de arquivo  utilizado: application/json 
+[Fri Feb 10 17:13:09 BRT 2023] INFO: Tempo máximo de espera em milisegundos: 10000 
+[Fri Feb 10 17:13:09 BRT 2023] CONFIG: Configuração concluída. 
+[Fri Feb 10 17:13:09 BRT 2023] INFO: Gerado o CPF: 65068158410 
