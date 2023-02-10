@@ -5,6 +5,8 @@ Este código foi desenvolvido para o desafio técnico Sicredi.
 Estas instruções fornecerão uma cópia do projeto para execução e alteração em sua máquina local para fins de desenvolvimento e teste. 
 Consulte as instruções abaixo para saber como baixar e executar o projeto.
 
+---
+
 ## Sobre os testes implementados neste repositório
 
 Este repositório contém os seguintes testes:
@@ -87,10 +89,19 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
   ```
 ---
 
+## Logs
+
+Os logs gerados durante a execuçãp dos testes são armazenadps na pasta ```logs ```
+
+---
+
+
 ## Estrutura do projeto
 
 ```
 .
+└── logs
+    └── .gitkeep
 └── src
    └── test
        └── java
@@ -119,13 +130,26 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
                   │   └── schema.xml
                   │   └── update.simulation.xml
                   └── allure.properties
-                  └── simulation.json
-└── target
-       └── reports folders
+                  └── logging.properties
+                  └── simulation.json
+└── .gitignore
 └── README.md
 └── pom.xml
 
 ```
+---
+
+## Tarefas realizadas
+Foi utilizado para fins de controle de atividades a funcionalidade *Issues* que o GitLab fornece.
+Acessando a seção [issues](https://gitlab.com/andersonmann/api-automation-with-rest-assured/-/issues/?sort=created_date&state=all&first_page_size=20) podem ser
+encontradas todas as atividades criadas durante o desenvolvimento desse projeto.
+
+---
+
+## Merge Requests
+
+Para fins de compreensão das práticas de desenvolvimento utilizadas, pode ser verificado a seção [Merge requests](https://gitlab.com/andersonmann/api-automation-with-rest-assured/-/merge_requests?scope=all&state=merged)
+do projeto.
 
 ---
 
@@ -137,9 +161,12 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 * [JAVA](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html/) - Linguagem de programação
 * [SonarLint](https://www.sonarlint.org/eclipse/) - Lint
 
+---
 
 ## Versionamento
 * [Semantic Versioning 2.0.0](https://semver.org/)
+
+---
 
 ## Autor
 
@@ -147,11 +174,15 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 - [GitHub](https://github.com/andersonmann)
 - [Linkedin](https://www.linkedin.com/in/andersonmann/)
 
+---
+
 ## Licença
 
 This project is licensed under the GNU License.
 
+---
+
 ## Roadmap
 - imagem Docker do Java e Maven
-- teste de contrato com PACT.IO
+- broker para teste de contrato com [PACT.IO](https://pact.io/)
 
