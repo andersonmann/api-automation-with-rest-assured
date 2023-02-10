@@ -1,13 +1,18 @@
 package br.rs.mann.rest.util;
 
+import br.rs.mann.rest.core.BaseTest;
+
 import java.util.Random;
+import java.util.logging.Logger;
 
 /**
  * @author anderson.mann
  *
  */
 
-public class DataGenerator {
+public class DataGenerator extends BaseTest {
+
+    private static final Logger LOGGER = Logger.getLogger(BaseTest.class.getName());
 
     /**
      * This method generated a random username
@@ -15,9 +20,10 @@ public class DataGenerator {
      * @return
      */
     public String createUserName() {
-        String prefix = "user test ";
+        String prefix = "usuário  ";
         double random = Math.random() * 101;
         String userName = prefix.concat(String.valueOf(random));
+        LOGGER.info("Gerado o nome: ".concat(userName));
         return userName;
     }
 
@@ -31,7 +37,9 @@ public class DataGenerator {
         String prefix = "emailtest";
         String provider = "@gmail.com";
         double random = Math.random() * 101;
-        return prefix.concat(String.valueOf(random).concat(provider));
+        String email = prefix.concat(String.valueOf(random).concat(provider));
+        LOGGER.info("Gerado o email: ".concat(email));
+        return email;
     }
 
     /**
@@ -61,6 +69,7 @@ public class DataGenerator {
                 .concat(String.valueOf(n4).concat(String.valueOf(n5).concat(String.valueOf(n6))
                         .concat(String.valueOf(n7).concat(String.valueOf(n8).concat(String.valueOf(n9)
                                 .concat(String.valueOf(d1).concat(String.valueOf(d2))))))));
+        LOGGER.info("Gerado o CPF: ".concat(newCpf));
         return newCpf;
     }
 
@@ -88,8 +97,8 @@ public class DataGenerator {
     }
 
     public static void main(String[] args) {
-        DataGenerator gerador = new DataGenerator();
-        String cpf = gerador.createCpf();
+        DataGenerator dataGenerator = new DataGenerator();
+        String cpf = dataGenerator.createCpf();
         System.out.printf("CPF: %s", cpf);
     }
 }
