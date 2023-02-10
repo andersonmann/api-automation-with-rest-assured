@@ -91,6 +91,8 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 
 ```
 .
+└── logs
+    └── .gitkeep
 └── src
    └── test
        └── java
@@ -119,9 +121,9 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
                   │   └── schema.xml
                   │   └── update.simulation.xml
                   └── allure.properties
-                  └── simulation.json
-└── target
-       └── reports folders
+                  └── logging.properties
+                  └── simulation.json
+└── .gitignore
 └── README.md
 └── pom.xml
 
