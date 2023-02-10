@@ -1,13 +1,16 @@
 package br.rs.mann.rest.util;
 
+import br.rs.mann.rest.core.BaseTest;
 import com.opencsv.CSVReader;
 
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.logging.Logger;
 
-public class CsvUtil {
+public class CsvUtil extends BaseTest{
+
+    private static final Logger LOGGER = Logger.getLogger(BaseTest.class.getName());
+
     public CsvUtil() {
     }
 
@@ -19,18 +22,7 @@ public class CsvUtil {
             it.next();
             it.remove();
         }
-        return it;
-    }
-
-    public static List<String> readSpecificColumn(String path, int column) throws Exception {
-        CSVReader csvReader = new CSVReader(new FileReader(path));
-        ArrayList it = new ArrayList();
-
-        String[] nextLine;
-        while ((nextLine = csvReader.readNext()) != null) {
-            it.add(nextLine[column]);
-        }
-        csvReader.close();
+        LOGGER.info("Realizada a leitura do arquivo restrictions.csv");
         return it;
     }
 }

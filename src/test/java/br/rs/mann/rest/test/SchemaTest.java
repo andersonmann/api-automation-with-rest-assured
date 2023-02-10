@@ -15,7 +15,6 @@ public class SchemaTest extends BaseTest {
     @Test(description = "Valida o contrato do recurso simulacoes")
     public void validateSchemaTest(){
         given()
-                .log().all()
         .when()
                 .get("simulacoes")
         .then()
