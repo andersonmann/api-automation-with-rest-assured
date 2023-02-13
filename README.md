@@ -7,6 +7,21 @@ Consulte as instruções abaixo para saber como baixar e executar o projeto.
 
 ---
 
+## Configuração do repositório
+
+- Certifique-se de ter as seguintes dependências instaladas na máquina
+  - Java >= 11
+  - Maven >= 3.1+
+  
+- Clone o repositório
+- Navegue até a raiz do diretório  do projeto
+
+  Execute o seguinte comando para insatalar as dependências necessárias:
+    ```sh
+     mvn install -DskipTests
+    ```
+---
+
 ## Sobre os testes implementados neste repositório
 
 Este repositório contém os seguintes testes:
@@ -36,19 +51,6 @@ Este repositório contém os seguintes testes:
 | UpdateSimulationTest  | updateNonexistentSimulationTest             |Tenta alterar uma simulacao inexistente.                                                                                          |
 ---
 
-## Configuração do repositório
-
-- Clone o repositório
-- Navegue até o diretório raiz do projeto
-- Certifique-se de ter as seguintes dependências instaladas na máquina
-    - Java >= 11
-    - Maven >= 3.1+
-
-  Execute o seguinte comando para insatalar as dependências necessárias:
-    ```sh
-     mvn install -DskipTests
-    ```
----
 
 ## Executando os testes
 
@@ -69,6 +71,32 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
     mvn clean test -P regressionTest -Dtest=ConsultRestrictionsTest
     ```
   Onde, o argumento `test` pode ser qualquer classe de teste implementada neste repositório.
+
+---
+
+## Bugs
+
+```mermaid
+graph TB
+
+  SubGraph1 --> SubGraph1Flow
+  subgraph "SubGraph 1 Flow"
+  SubGraph1Flow(SubNode 1)
+  SubGraph1Flow -- Choice1 --> DoChoice1
+  SubGraph1Flow -- Choice2 --> DoChoice2
+  end
+
+  subgraph "Main Graph"
+  Node1[Node 1] --> Node2[Node 2]
+  Node2 --> SubGraph1[Jump to SubGraph1]
+  SubGraph1 --> FinalThing[Final Thing]
+end
+```
+
+---
+
+
+## Inconsistências
 
 ---
 
