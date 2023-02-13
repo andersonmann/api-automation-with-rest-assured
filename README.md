@@ -75,31 +75,29 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 ---
 
 > ## Bugs e inconsistências
->- **Deletar simulação** 
-> 
+>- **Deletar simulação**  
 >  - **Parametro utilizado** 
 >  
 >    Na documentação ```swagger``` consta a seguinte descrição sobre o método DELETE:
 >  
->    ```
->    DELETE /api/v1/simulacoes/{id} Remove uma simulação existente através do CPF
->    ```
+>  ```
+>  DELETE /api/v1/simulacoes/{id} Remove uma simulação existente através do CPF
+>  ```
 >  
->     Contudo na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
+>  Contudo, na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
 >  
->     ```
->     DELETE <host>/api/v1/simulacoes/{id} Remove uma simulação previamente cadastrada pelo seu ID
->     ```
+>  ```
+>  DELETE <host>/api/v1/simulacoes/{id} Remove uma simulação previamente cadastrada pelo seu ID
+>  ```
 >   
->     A inconsitência encontrada é referente ao atributo utilizado para a exclusão de uma simulação.
->     A primeira cita o CPF como sendo o atributo a ser utilizado, enquanto a segunda refere o ID da simulação.\
->     Contudo, durante os testes foi constatado que a aplicação efetivamente utiliza o atributo ID para realizar
->     a exclusão.
+>  A inconsitência encontrada é referente ao atributo utilizado para a exclusão de uma simulação.
+>  A primeira cita o CPF como sendo o atributo a ser utilizado, enquanto a segunda refere o ID da simulação.\
+>  Porém, durante os testes foi constatado que a aplicação efetivamente utiliza o atributo ID para realizar
+>  a exclusão.
 >  
 >
 >- **Deletar simulação**
-   >
-   >  - **Status code**
+>  - **Status code**
 >
 >    Na documentação ```swagger``` consta a seguinte descrição sobre o método DELETE:
 >
@@ -108,29 +106,28 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 >    ```
 >    
 >    Contudo, na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
-
+>
 >    ```
 >    Response: status code 204
 >    ```
-    
+>    
 >    Além do status code estar divergente, nenhuma mensagem é retornada. 
 >    Durante os testes foi constatado que a aplicação efetivamente retorna o status code 200.
 >
 >
 >- **Deletar simulação**
->
 >  - **Simulação inexistente**
 >
->     Na documentação ```swagger``` NÃO existe previsão de tratamento de erro para o método DELETE:
+>      Na documentação ```swagger``` NÃO existe previsão de tratamento de erro para o método DELETE:
 >  
->     Contudo, na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
+>      Contudo, na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
 >
->    ```
->    Response: status code 204, description: Simulação não encontrada
->    ```
+>     ```
+>     Response: status code 204, description: Simulação não encontrada
+>     ```
 
->    Além das informações, estarem divergentes, durante os testes foi constatado que a aplicação efetivamente não trata esse tipo de erro.
->    Se for enviado uma requisição para uma simulação inexistente, é retornado o status code 200.
+>     Além das informações, estarem divergentes, durante os testes foi constatado que a aplicação efetivamente não trata esse tipo de erro.
+>     Se for enviado uma requisição para uma simulação inexistente, é retornado o status code 200.
 >
 > 
 > - **Criar Simulação**
