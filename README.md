@@ -74,6 +74,29 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 
 ---
 
+## Gerar relatórios
+
+- Após a execução dos testes, gere o relatório usando o seguinte comando:
+
+
+  ```sh
+  mvn allure:report
+  ```
+
+- Inciar o servidor e visualizar o relatório:
+
+
+  ```sh
+  mvn allure:serve
+  ```
+---
+
+## Logs
+
+Os logs gerados durante a execuçãp dos testes são armazenadps na pasta ```logs ```
+
+---
+
 > ## Bugs e inconsistências
 >- **Deletar simulação**  
 >   - **Parametro utilizado** 
@@ -208,30 +231,6 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 
 
 ---
-
-## Gerar relatórios
-
-- Após a execução dos testes, gere o relatório usando o seguinte comando:
-
-
-  ```sh
-  mvn allure:report
-  ```
-
-- Inciar o servidor e visualizar o relatório:
-
-
-  ```sh
-  mvn allure:serve
-  ```
----
-
-## Logs
-
-Os logs gerados durante a execuçãp dos testes são armazenadps na pasta ```logs ```
-
----
-
 
 ## Estrutura do projeto
 
