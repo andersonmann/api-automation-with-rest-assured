@@ -117,16 +117,16 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 >- **Deletar simulação**
 >   - **Simulação inexistente**
 >
->      Na documentação ```swagger``` NÃO existe previsão de tratamento de erro para o método DELETE:
+>    Na documentação ```swagger``` NÃO existe previsão de tratamento de erro para o método DELETE:
 >  
->      Contudo, na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
+>    Contudo, na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
 >
->     ```
->     Response: status code 204, description: Simulação não encontrada
->     ```
+>    ```
+>    Response: status code 204, description: Simulação não encontrada
+>    ```
 >
->     Além das informações, estarem divergentes, durante os testes foi constatado que a aplicação efetivamente não trata esse tipo de erro.
->     Se for enviado uma requisição para uma simulação inexistente, é retornado o status code 200.
+>    Além das informações, estarem divergentes, durante os testes foi constatado que a aplicação efetivamente não trata esse tipo de erro.
+>    Se for enviado uma requisição para uma simulação inexistente, é retornado o status code 200.
 >
 > 
 > - **Criar Simulação**
