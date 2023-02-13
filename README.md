@@ -76,7 +76,7 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 
 > ## Bugs e inconsistências
 >- **Deletar simulação**  
->  - **Parametro utilizado** 
+>   - **Parametro utilizado** 
 >  
 >     Na documentação ```swagger``` consta a seguinte descrição sobre o método DELETE:
 >  
@@ -96,7 +96,7 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 >  
 >
 >- **Deletar simulação**
->  - **Status code**
+>   - **Status code**
 >
 >    Na documentação ```swagger``` consta a seguinte descrição sobre o método DELETE:
 >
@@ -115,7 +115,7 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 >
 >
 >- **Deletar simulação**
->  - **Simulação inexistente**
+>   - **Simulação inexistente**
 >
 >      Na documentação ```swagger``` NÃO existe previsão de tratamento de erro para o método DELETE:
 >  
