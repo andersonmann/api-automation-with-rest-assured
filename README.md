@@ -74,29 +74,142 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 
 ---
 
-## Bugs
+> ## Bugs e inconsistências
+>- **Deletar simulação** 
+> 
+>  - **Parametro utilizado** 
+>  
+>    Na documentação ```swagger``` consta a seguinte descrição sobre o método DELETE:
+>  
+>    ```
+>    DELETE /api/v1/simulacoes/{id} Remove uma simulação existente através do CPF
+>    ```
+>  
+>     Contudo na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
+>  
+>     ```
+>     DELETE <host>/api/v1/simulacoes/{id} Remove uma simulação previamente cadastrada pelo seu ID
+>     ```
+>   
+>     A inconsitência encontrada é referente ao atributo utilizado para a exclusão de uma simulação.
+>     A primeira cita o CPF como sendo o atributo a ser utilizado, enquanto a segunda refere o ID da simulação.\
+>     Contudo, durante os testes foi constatado que a aplicação efetivamente utiliza o atributo ID para realizar
+>     a exclusão.
+>  
+>
+>- **Deletar simulação**
+   >
+   >  - **Status code**
+>
+>    Na documentação ```swagger``` consta a seguinte descrição sobre o método DELETE:
+>
+>    ```
+>    Response: status code 200, description: Simulação removida com sucesso
+>    ```
+>    
+>    Contudo, na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
 
-```mermaid
-graph TB
+>    ```
+>    Response: status code 204
+>    ```
+    
+>    Além do status code estar divergente, nenhuma mensagem é retornada. 
+>    Durante os testes foi constatado que a aplicação efetivamente retorna o status code 200.
+>
+>
+>- **Deletar simulação**
+>
+>  - **Simulação inexistente**
+>
+>     Na documentação ```swagger``` NÃO existe previsão de tratamento de erro para o método DELETE:
+>  
+>     Contudo, na documentação do arquivo ```.pdf``` essa operação é descrita da seguinte maneira:
+>
+>    ```
+>    Response: status code 204, description: Simulação não encontrada
+>    ```
 
-  SubGraph1 --> SubGraph1Flow
-  subgraph "SubGraph 1 Flow"
-  SubGraph1Flow(SubNode 1)
-  SubGraph1Flow -- Choice1 --> DoChoice1
-  SubGraph1Flow -- Choice2 --> DoChoice2
-  end
+>    Além das informações, estarem divergentes, durante os testes foi constatado que a aplicação efetivamente não trata esse tipo de erro.
+>    Se for enviado uma requisição para uma simulação inexistente, é retornado o status code 200.
+>
+> 
+> - **Criar Simulação**
+>   - **Dados obrigatórios**
+>     
+>     Na documentação do arquivo ```.pdf``` diz que os seguintes atributos são obrigatórios:
+>   
+>     ```
+>     cpf
+>     nome
+>     email
+>     valor
+>     parcela
+>     seguro
+>     ```
+>     
+>     Contudo, durantes os testes foi constatado que somente os seguintes atribuitos são obrigatórios:
+> 
+>     ```
+>     parcelas
+>     valor
+>     email
+>     ```
+>     
+>     
+> - **Criar simulação**
+>   - **CPF duplicado**
+>   
+>     Nas documentações ```swagger``` e ```.pdf``` constam que ao tentar criar uma simulação passando um
+>     CPF já existente, o comportamento deve ser:
+> 
+>     ```
+>     response: status code 409, description: CPF já existente
+>     ```
+> 
+>     Contudo, durante os testes foi verificado o seguinte comportamento:
+>   
+>     ```
+>     response: status code 400, description: CPF duplicado
+>     ```
+>     
+>     
+> - **Criar simulação**
+>    - **Valores da simulação**
+>   
+>     Na documentação do arquivo ```.pdf``` diz que as regras do atributo valor são:
+>   
+>     ```
+>     valor da simulação deve ser igual ou maior que R$ 1.000 e menor ou igual que R$ 40.000
+>     ```
+>     
+>     Porém, durante os testes foi verificado o seguinte comportamento:
+> 
+>     ```
+>     valor da parcela PODE ser menor que R$ 1.000
+>     ```
+>   
+>     
+> - **Criar simulação**
+>    - **Numero de parcelas**  
+> 
+>     Na documentação do arquivo ```.pdf``` diz que as regras do atributo parcela são:
+> 
+>     ```
+>     número de parcelas para pagamento que deve ser igual ou maior que 2 e menor ou igual a 48
+>     ````
+>     
+>     Porém, durante os testes foi verificado o seguinte comportamento:
+> 
+>     ```
+>     quantidade de parcelas PODE ser menor que 2
+>     ```
+>     
+> - **Criar simulação**
+>   - **Numero de CPF inválido** 
+> 
+>     Na documentação do arquivo ```.pdf``` não fica claro o comportamento referente ao atributo CPF.\
+>     Durante os testes foi possível criar simulações com CPFs inválidos ou passando um valor nulo.
 
-  subgraph "Main Graph"
-  Node1[Node 1] --> Node2[Node 2]
-  Node2 --> SubGraph1[Jump to SubGraph1]
-  SubGraph1 --> FinalThing[Final Thing]
-end
-```
-
----
-
-
-## Inconsistências
 
 ---
 
