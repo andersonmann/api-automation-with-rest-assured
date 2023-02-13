@@ -112,9 +112,9 @@ Nesse projeto foi utilizado [Maven Profiles]( https://maven.apache.org/guides/in
 >    
 >    Além do status code estar divergente, nenhuma mensagem é retornada.
 >    Durante os testes foi constatado que a aplicação efetivamente retorna o status code 200.
+>   
 >
-> 
-> 
+>
 >- **Deletar simulação**
 >   - **Simulação inexistente**
 >
