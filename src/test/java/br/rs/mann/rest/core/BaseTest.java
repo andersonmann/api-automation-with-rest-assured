@@ -19,7 +19,7 @@ public class BaseTest implements Constant {
 
     private static Logger LOGGER = Logger.getLogger(BaseTest.class.getName());
 
-    @BeforeClass
+    @BeforeClass(description = "Criando configurações padrões")
     public static void setup() {
         RestAssured.baseURI = APP_BASE_URL;
         LOGGER.info("HOST utilizado: ".concat((APP_BASE_URL)));
