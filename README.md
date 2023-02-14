@@ -335,6 +335,9 @@ This project is licensed under the GNU License.
 ---
 
 ## Roadmap
+
+- seleção dinâmica de ambientes
 - imagem Docker do Java e Maven
+- integrar com CI/CD
 - broker para teste de contrato com [PACT.IO](https://pact.io/)
 
