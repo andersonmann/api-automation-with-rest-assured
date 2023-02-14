@@ -7,6 +7,20 @@ Consulte as instruções abaixo para saber como baixar e executar o projeto.
 
 ---
 
+## Configuração da aplicação
+
+Para poder executar os testes implementados nesse projeto, será necessário executar a aplicação na sua máquina.\
+Execute os seguintes passos:
+  - Faça download e descompacte o arquivo ``prova-tecnica-api-master.zip`` localizado na pasta ``src/test/resources/app``
+  - Abra o terminal e navegue até a raiz da pasta compacta 
+  - Execute o seguinte comando:
+    ```sh
+    mvn clean spring-boot:run
+    ```
+ 
+
+---
+
 ## Configuração do repositório
 
 - Certifique-se de ter as seguintes dependências instaladas na máquina
@@ -256,6 +270,8 @@ Os logs gerados durante a execuçãp dos testes são armazenadps na pasta ```log
            │   └── DataGenerator.java
 
            └── resources
+                  └── app
+                  │   └── prova-tecnica-api-master.zip
                   └── data
                   │   └── restrictions.csv
                   ├── runners
