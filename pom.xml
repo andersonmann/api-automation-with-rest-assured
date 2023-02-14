@@ -97,11 +97,8 @@
             <version>${allure-testng.version}</version>
         </dependency>
 
-
     </dependencies>
-
     <profiles>
-
         <profile>
             <id>regressionTest</id>
             <build>
@@ -110,10 +107,6 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
-                            <systemPropertyVariables>
-                                <environment>remote</environment>
-                                <testType>parallel</testType>
-                            </systemPropertyVariables>
                             <suiteXmlFiles>
                                 <suiteXmlFile>src/test/resources/runners/schema.xml</suiteXmlFile>
                                 <suiteXmlFile>src/test/resources/runners/consult.restriction.xml</suiteXmlFile>
@@ -127,6 +120,5 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
 </project>
